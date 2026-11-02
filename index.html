@@ -1,0 +1,36 @@
+# Student Grading System
+
+def get_grade(score):
+    if score < 0 or score > 100:
+        return "Invalid Score"
+    elif score >= 80:
+        return "A"
+    elif score >= 70:
+        return "B"
+    elif score >= 60:
+        return "C"
+    elif score >= 50:
+        return "D"
+    else:
+        return "F"
+
+students = {}
+
+n = int(input("How many students? "))
+
+for i in range(n):
+    name = input("\nEnter student name: ")
+    score = float(input("Enter score: "))
+
+    students[name] = {
+        "Score": score,
+        "Grade": get_grade(score)
+    }
+
+print("\n--- STUDENT REPORT ---")
+
+for name, details in students.items():
+    print(f"Name: {name}")
+    print(f"Score: {details['Score']}")
+    print(f"Grade: {details['Grade']}")
+    print("-" * 20)
